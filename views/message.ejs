@@ -12,5 +12,8 @@
     <div>
         <h2>text : <%= message.text%></h2> 
     </div>
+    <form action="/delete/<%= message._id %>" method="get">
+        <input type="submit" value="delete">
+    </form>
 </body>
 </html>

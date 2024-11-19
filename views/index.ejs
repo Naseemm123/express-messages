@@ -1,17 +1,17 @@
 <html>
   <body>
-    <a href="/new">new message</a>
-    <% messages.forEach((message, index) => { %>
+    <a href="/new">Add Message</a>
+    <% Messages.forEach((message) => { %>
         <div>
-            <h2>name : <%= message.user%></h2> 
+            <h2>name : <%= message.author%></h2> 
         </div>
         <div>
-            <h2>text : <%= message.text%></h2> 
+            <h2>text : <%=  message.text%></h2> 
         </div>
-        <form action="/message/<%= index %>">
-            <input type="submit" value="Open" />
-        </form>
         <br>
+        <form action="/message/<%= message._id%>" method="get">
+          <input type="submit" value="open">
+        </form>
         <hr>
         <% }) %>
   </body>

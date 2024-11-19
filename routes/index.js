@@ -5,13 +5,13 @@ const indexRouter = Router();
 
 indexRouter.get('/', async function(req, res) {
   const data = await getData(MessageModel)
+  res.render('index', {Messages: data})
 })
 
 indexRouter.get('/message/:id', async function(req, res) {
-  const messages = await MessageModel.find()
-  const index = req.params.id
-  const item = messages[index]
-  res.render('message', {message: item})
+  const id = req.params.id
+  const message = await MessageModel.findOne({_id: id})
+  res.render('message', {message: message})
 })
 
 

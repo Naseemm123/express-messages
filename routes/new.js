@@ -9,7 +9,6 @@ newRouter.get('/', (req, res) => res.render('form'))
 newRouter.post('/', async function(req, res) {
     const author = req.body.author
     const message = req.body.message
-    // messages.push({text : message, user: author, added: new Date()})
     await MessageModel.create({
         text: message,
         author: author,
@@ -20,4 +19,4 @@ newRouter.post('/', async function(req, res) {
     res.redirect('/')
 })
 
-module.exports = newRouter
+module.exports = { newRouter }
